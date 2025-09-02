@@ -3,3 +3,4 @@ pandas
 plotly
 prisma
 nest_asyncio
+mysql-connector-python
