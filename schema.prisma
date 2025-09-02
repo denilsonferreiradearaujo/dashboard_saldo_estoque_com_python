@@ -1,0 +1,37 @@
+datasource db {
+  // provider = "postgresql"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+// provider = "mysql"
+
+generator client {
+  provider = "prisma-client-py"
+}
+
+model Inventario {
+  id                Int      @id @default(autoincrement())
+  material          String
+  descricao         String?   @map("Texto breve material")
+  tmat              String?   @map("TMat")
+  centro            String?   @map("Cen.")
+  deposito          String?   @map("Dep.")
+  unidadeMedida     String?   @map("UMB")
+  moeda             String?   @map("Moeda")
+  utilizacaoLivre   Float?    @map("Utilização livre")
+  valUtilizLivre    Float?    @map("Val.utiliz.livre")
+  bloqueado         Float?    @map("Bloqueado")
+  valBloqueado      Float?    @map("Val.estoque bloq.")
+  contrQualidade    Float?    @map("Em contr.qualidade.") 
+  valContrQualidade Float?    @map("Valor verif.qual.")
+  transitoTE        Float?    @map("Trânsito e TE")
+  valTransitoTrf    Float?    @map("Val.em trâns.e Trf")
+  estoqueEspecial   String?   @map("Nº estoque especial")
+  unidade           String?   @map("UNIDADE")
+  tipo              String?   @map("TIPO 2")
+  operacao          String?   @map("OPERAÇÃO")
+  cidade            String?   @map("CIDADE")
+  classificacao     String?   @map("CLASSIF")
+  data_extracao     DateTime
+  data_importacao   DateTime  @default(now())
+}

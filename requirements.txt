@@ -1,0 +1,5 @@
+streamlit
+pandas
+plotly
+prisma
+nest_asyncio
